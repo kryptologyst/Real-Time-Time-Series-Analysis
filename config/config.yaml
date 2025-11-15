@@ -1,0 +1,60 @@
+data:
+  length: 1000
+  frequency: "1H"
+  trend_strength: 0.1
+  seasonality_strength: 0.5
+  noise_level: 0.1
+  anomaly_probability: 0.05
+  seasonal_periods: 24
+  
+  # Preprocessing settings
+  outlier_method: "iqr"
+  outlier_factor: 1.5
+  interpolation_method: "linear"
+  normalization_method: "zscore"
+
+model:
+  # ARIMA parameters
+  arima_order: [1, 1, 1]
+  seasonal_order: [0, 0, 0, 0]
+  
+  # Prophet parameters
+  prophet_yearly_seasonality: true
+  prophet_weekly_seasonality: true
+  prophet_daily_seasonality: true
+  
+  # Anomaly detection parameters
+  contamination: 0.1
+  random_state: 42
+  
+  # Ensemble parameters
+  ensemble_method: "average"
+
+visualization:
+  # Plot settings
+  figure_size: [12, 6]
+  style: "default"
+  dpi: 300
+  
+  # Real-time settings
+  window_size: 50
+  update_interval: 100
+  
+  # Colors
+  primary_color: "#1f77b4"
+  secondary_color: "#ff7f0e"
+  anomaly_color: "#d62728"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "logs/app.log"
+  max_file_size: 10485760  # 10MB
+  backup_count: 5
+
+# Application settings
+debug: false
+data_dir: "data"
+models_dir: "models"
+logs_dir: "logs"
+cache_dir: "cache"
